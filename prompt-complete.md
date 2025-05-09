@@ -13,7 +13,7 @@ Build the application using the following technologies:
   - Tailwind CSS 3.x
   - shadcn/ui components
   - CSS Variables for theming
-  - Mobile-first: Design for mobile only - no responsive prefixes (`sm-`, `md-`, etc.).
+  - heroicons for icon library
 - **State Management & Persistence**:
   - Zustand with persist middleware to manage application state and automatically sync with local storage
 - **Code Quality**:
@@ -25,6 +25,62 @@ Build the application using the following technologies:
   - `/hooks` - Custom React hooks including Zustand stores
   - `/lib` - Utility functions
   - `/types` - TypeScript interfaces and types
+
+
+## Project Installation and Configuration
+
+## Next.js with Tailwind 3
+Ensure to install Next.js with these options:
+
+```bash
+--typescript
+--eslint
+--tailwind
+--app
+--no-turbo
+--import-alias="@/*"
+```
+
+## Shadcn/ui
+
+1. Ensure to install Shadcn/ui with these options:
+
+```bash
+- --typescript
+- --style=new-york
+- --color=stone
+- --css-variables=yes
+- --tailwind-css=app/globals.css
+- --tailwind-config=tailwind.config.ts
+- --components-dir=components
+- --utils-dir=lib/utils
+- --rsc
+```
+
+2. Once Shadcn/ui is installed, ensure `components.json` matches:
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "new-york",
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "stone",
+    "cssVariables": true,
+    "rsc": true,
+    "tsx": true
+  },
+  "aliases": {
+    "utils": "@/lib/utils",
+    "components": "@/components",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "heroicons"
+}
+```
 
 ## Out of Scope (For Future Implementation)
 ---
